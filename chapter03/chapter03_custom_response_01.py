@@ -23,9 +23,10 @@ async def get_html():
 async def text():
     return "Hello world2!"
 
+
 @app.get("/")
 async def index():
-   return {"message": "Hello World"}
+    return {"message": "Hello World"}
 
 if __name__ == "__main__":
-   uvicorn.run("chapter03_custom_response_01:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("chapter03_custom_response_01:app", host="127.0.0.1", port=8000, reload=True)

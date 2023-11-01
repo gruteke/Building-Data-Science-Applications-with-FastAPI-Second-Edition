@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
+import uvicorn
 
 
 class PostBase(BaseModel):
@@ -47,3 +48,6 @@ async def partial_update(id: int, post_update: PostPartialUpdate):
         return updated_post
     except KeyError:
         raise HTTPException(status.HTTP_404_NOT_FOUND)
+
+if __name__ == "__main__":
+    uvicorn.run("chapter04_working_pydantic_objects_05:app", host="127.0.0.1", port=8000, reload=True)
